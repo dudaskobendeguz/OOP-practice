@@ -3,7 +3,7 @@
 *.class
 .idea/
 .target/
-
+.~lock*
 # Log file
 *.log
 
