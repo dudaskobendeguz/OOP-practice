@@ -1,0 +1,50 @@
+recovery ulr:
+//www.plantuml.com/plantuml/png/VLBH2fj047pVh_0neVe3br8IDJH2WY56Iv_2rTlAqTMJkpKGIl-zHtg2jj0NTNPdnhdXzewbvQadW9QaSr5AflsHJexHLcmiHZyXYRGITLta_ckqHaqjEt7MZZzU_w1F01yYgLI0cq2A0jwAfz7AKphamrDgajy8myvjjckhG2Fw3y7YmFE_M3EXgDZgeOlVcrmoYamI3ahQRJcoDeEajPudE_oLLWGSHsfb85BTvTZgNXB0hxccG7wtiupWeKL2wN0Lmu-LrFIw-NoICkDuOUkNnkfE-vGtP4-xMjtYcZ2IvE_6zlVNYEAw0EzCE4nzj9pwN5aUGzxuHtEgOaZFTN8xVDq13BAVmyxI-JH1UQch8lEw8Z-MZy-7op66IzaK_dLl7jMf_BBpGlZdefWacOq0vdxyR66-7AyF0R3tHKqz_GO0
+
+@startuml
+
+class BlockBusterStore {
+- id:UUID
+- products:List<Product>
+
++ addProduct(product Product):void
++ getAvailableProducts():List<Product>
++ getAllProducts():List<Product>
++ rentProduct(title:String, rentDate:Calendar)Optional<Product>
++ returnProduct(product:Product, date:Calendar):BigDecimal
+
+}
+
+class Product {
+- title:String
+- releaseDate:Calendar
+- dailyRentalCost:BigDecimal
+- originalRetailPrice:BigDecimal
+- platformType:PlatformType
+
+}
+
+enum PlatformType {
+CD,
+DVD,
+VHS,
+BLU-RAY;
+
+name:String
+}
+
+enum ProductType {
+MUSIC,
+VIDEO_GAME,
+MOVIE,
+TV_SHOW;
+}
+
+BlockBusterStore o-- Product
+
+Product -- ProductType
+Product -- PlatformType
+
+
+
+@enduml
