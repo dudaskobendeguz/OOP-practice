@@ -1,0 +1,50 @@
+recovery link:
+//www.plantuml.com/plantuml/png/XP7DRi8m48JlVeeSGGqlOA6AKcY5eBW23hrkarLaoJ-flQc4ghvx5pj9VuJKctSz_cOoMKI2G9qreZ8GOx7KncW8zH6Czwxu4BE2uDLWb3iTQNwwd6-5-1G2NMUBD9_EBRBoMQbTAOvxfRRhGoaEwnT-xC2YF5BGhk6f3Rf2kTJD2YjjmJ0d-sPGiak1JfgVtOD1LqFWPTL5yXR3_XUE1dSvvk2j3pM6A9-WdQlBiImsZh31mBblClwHCPChpAbyzxfc5VicpVHdMDwtS4xCIJAHFV-j0qUQpb8x6X4DqfqnIH4dq-jnnXxJJT_ZWrAhKgmEc_rsx2SB-FA_HeVlJwsCr0j7_FcrVZRBhOlSFS_PfPzv_6ursm-Aj5fmHvqrNm00
+
+@startuml
+class BilliardSaloon {
+- tables:List<Table>
+
+}
+
+enum TableType {
+POOL,
+SNOOKER,
+REX
+- name:String
+- price:BigDecimal
+}
+
+class Table {
+- startTime:Calendar
+- customerName:String
+
+- tableType:TableType
+- orders:Map<Order, Integer>
+
++ startGame(customerName:String):void
++ endGame():BigDecimal
+
++ payOrder(order:Order, quantity:int):void
++ getAllOrders():Map<Order, Integer>
+
+
+}
+
+enum OrderType {
+FOOD,
+DRINK
+}
+
+class Order {
+- name:String
+- price:BigDecimal
+- orderType:OrderType
+}
+
+
+BilliardSaloon o-- Table
+Table o-- Order
+Table -- TableType
+Order -- OrderType
+@enduml
