@@ -1,0 +1,54 @@
+recovery link:
+//www.plantuml.com/plantuml/png/VP7TQW8n48NlynI1thI8Bo2bs8ig50kYla3SJ7LfVi9aiYsKldl7f46DRA-KSyvySpOpZwIGaZMYCof6kL1evRUOoc2KezaMw75z-lV44dbIPk6zNgFNgGCzaxqZ8IRo0BHhpVk76RjiXYAmLxKV8TG-4ggEP5cRT_3UEtb0_zcxmqOHvAmO8_0FuBlgGBwbU4JlxP970PaooPGgyyZWUtqzi-6wUmCvZ9xEcRRPom2uH02NNyLwHyUuwWVGkKVPj08rGAoCYOm1rCS5if2U3K_h7G9lFQlRWAaxAMVfDRa-0Fvf-I9-EYrlT3q5NmHENvHi2BT-MwL62dtquvlO3QMtmO05Hx6vncNV_sEZn7ghKLJrvzmmMVCB
+
+@startuml
+class Farm {
+- plant:Set<Plant>
+- totalFoodProduced: int
+
++ getTotalFoodProduced():int
++ produceFood():int
+}
+
+abstract class Plant {
+# growingRate:int
+
+
++ produceFood():int
+}
+
+interface MushroomGrower {
++ growMushroom():void
+}
+
+interface Rotable {
++ rot():void
+}
+
+abstract class EverGreen {
+- monthsLived:int
++ growLeaves():void
++ speak():void
+}
+
+class AlmondTree {
+}
+
+class Spruce {
+
+}
+
+class Juniper {
+
+}
+
+Farm o-- Plant
+class Spruce extends EverGreen
+class Juniper extends EverGreen
+class AlmondTree extends Plant
+abstract class EverGreen extends Plant
+class AlmondTree implements MushroomGrower
+class Spruce implements MushroomGrower
+class AlmondTree implements Rotable
+class Spruce implements Rotable
+@enduml
