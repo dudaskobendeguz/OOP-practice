@@ -1,0 +1,47 @@
+recovery url:
+//www.plantuml.com/plantuml/png/VL5DJy904Btlh-XPonzO3G6A9YYnX887RiDs91ltezcTnbJ3VtU7ejGOlMpclVbuRsOdaI1GQurG1cBC2kyK1Yh30Pn-nr1usu3hiWynobIVYx92kZqNZXE_1rVtv2n5Oo6EukUqOVUcQr0MbpXbB6Z7dPAVXDyWs6qpP4YhLwHLq0hbJ1_cgBG5yvs8ItmXgHsn6SGGAszgnkn4e6jjDb1CRXPFyx9SvwBSRlhW_gxQB9wdonjndIbeG6dgU422THk0j7UozktUO69OufUNurceeiwmnBei7dEnAbUvU9ZkTldbABpJwI8EBCgAWdQ7X69gJ91Vhlth8_nezBNClpMi8avILmdrOy_rp0mFCkJxFZ51LxVMV080
+
+@startuml
+class ConcertOrganizerCompany {
+- concerts:Set<Concert>
+- bands:Set<Band>
+
+}
+
+class Concert {
+- concertType:ConcertType
+- mainBand:Band
+- warmUpBand:Band
+- ticketPrice:BigDecimal
+- ticketsLeft:int
+- beersSold:int
+}
+
+
+enum ConcertType {
+INDOOR,
+OUTDOOR,
+FESTIVAL;
++ capacity:int
++ duration:double
++ beerPrice:BigDecimal
+}
+
+enum Style {
+ROCK,
+POP,
+JAZZ,
+}
+
+class Band {
+- name:String
+- style:Style
+}
+
+ConcertOrganizerCompany o-- Concert
+ConcertOrganizerCompany o-- Band
+Band *-- Style
+Concert *-- ConcertType
+Concert *-- Band
+
+@enduml
