@@ -1,0 +1,48 @@
+recovery link:
+//www.plantuml.com/plantuml/png/VL3BJkim4DtxAopTpKMqFn0gL450NKGL8YrRD7M7Ok57P4yQ0kBViMEYrA9YOutEO-RuB3s1erOh9XHupzT8dNLl_9FD-HwFKg0lQgH5ESpNx8ins7bo88WdHs860noma8R2j0CYT7qbNnB2BgDQj0e87r63DD8S7co7xlz5SRHop_vnPJtUJBwH-7sn5WxHdDpr0r3B3omIj-aRZ4OqhUOJ5CHtvUPfnbRbZDrlg-ev3jjLUHNoDJ7DBJGW9FKnT5oG3bRoy4eTnZUicF2rTHfK1jKQ70sX3EWGXrpuQAJ7Okry_bFPkUtuJcZsOwb_VZoNveaIbnkoW6S5sVf5o7bIvZB8Mws-0G00
+
+@startuml
+class Network {
+- devices:Set<Device>
+}
+
+abstract class Device {
+- age:int
+- batteryLife:int
+
++ claculateRemainingPower():void
+# loseBatteryLife():void
+}
+
+abstract class ScreenDevice {
+- screenSize:ScreenType
+}
+
+enum ScreenType {
+EDTV,
+HD,
+FULL_HD,
+UHD;
++ powerCapacity:int
+}
+
+class Lightweight {
+
+}
+
+class Normal {
+
+}
+
+class Smart {
+- name:String
+}
+
+Network o-- Device
+
+class Lightweight extends Device
+abstract class ScreenDevice extends Device
+class Normal extends ScreenDevice
+class Smart extends ScreenDevice
+ScreenDevice <-- ScreenType
+@enduml
